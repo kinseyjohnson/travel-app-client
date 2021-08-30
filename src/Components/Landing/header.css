@@ -1,0 +1,26 @@
+header {
+    background-color: #88B4A8;
+    margin: auto -16px;
+    padding: 30px 32px;
+    padding-top: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+ul {
+    display: inline;
+    list-style-type: none;
+    position: relative;
+}
+
+li {
+    float: right;
+    color: #fff;
+    font-size: 25px;
+    padding: 2px 40px;
+}
+
+.logo {
+    color: #fff;
+    font-size: 25px;
+    float: left;
+}
