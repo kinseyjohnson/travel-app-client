@@ -7,6 +7,7 @@ import Login from '../Auth/Login';
 import DestinationCreate from '../Destination/DestinationCreate';
 import ForumCreate from '../Forum/ForumCreate';
 import DestinationView from '../Destination/DestinationView';
+import ForumView from '../Forum/ForumView';
 // import DestinationTable from '../Destination/DestinationTable';
 
 class Header extends React.Component {
@@ -22,8 +23,11 @@ class Header extends React.Component {
                     <Link to="/login">
                         <li>Login</li>
                     </Link>
+                    <Link to="/forum/all">
+                        <li>View Tips</li>
+                    </Link>
                     <Link to="/destination/all">
-                        <li>View All</li>
+                        <li>View Destinations</li>
                     </Link>
                     <Link to="/destination/create">
                         <li>Destinations</li>
@@ -44,6 +48,9 @@ class Header extends React.Component {
                 </Route>
                 <Route exact path="/login">
                     <Login />
+                </Route>
+                <Route exact path="/forum/all">
+                    <ForumView/>
                 </Route>
                 <Route exact path="/destination/all">
                     <DestinationView/>

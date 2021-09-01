@@ -19,35 +19,23 @@ interface ForumViewState {
 //   return props.forum.map()
 // }
 
-class ForumView extends React.Component<any, ForumViewState> {
+
+
+class ForumView extends React.Component<any, any> {
   constructor(props: any) {
     super(props)
     
     this.state = {
-      firstName: "",
-      lastName: "",
-      comment: "",
+      forum: [],
       sessionToken: localStorage.getItem('sessionToken')
       
     };
-
+  
+    // this.mapper = this.mapper.bind(this)
   }
 
   componentDidMount() {
     console.log("Component Mounted")
-    // this.displayContent()
-    // console.log(this.state.city)
-    // console.log(this.state.country)
-    // console.log(this.state.attractions)
-    // console.log(this.state.notes)
-    // console.log(this.state.rating)
-    
-  
-  }
-
-  displayContent(){
-    // console.log(data)
-
     fetch("http://localhost:3000/forum/all", {
       method: "GET",
       headers: new Headers({
@@ -56,67 +44,62 @@ class ForumView extends React.Component<any, ForumViewState> {
       }),
     })
       .then((res) => res.json())
-      .then( data => {
-        console.log(data)
-         return data.map((destination: any) => {
-      
-        return(
-        <tr>
-          console.log(destination)  
-          <td>{destination.firstName}</td>
-          <td>{destination.lastName}</td>
-          <td>{destination.comment}</td>
-          </tr>
-        // let h4 = document.createElement("h4")
-        // h4.innerText = data
-        // document.body.appendChild(h4)
-        
-      )})})
+      .then( data => this.setState({
+        forum: data[7]
+      }))
 
-    // let destination = data
+}
 
-    
-    //need map 
+  displayContent = (data: any) => {
+    let forum = data.data
+    console.log(data)
+    console.log(forum)
+    // let result = forum.map(())
   }
-
+   
 
     render() {
+      // const items = this.state.forum.map(())
       return (
         <div>
-          <h1>Travel Tips</h1>
-          <br />
-          <Table bordered style={{backgroundColor: "white"}} >
+            <h1>Forum</h1>
+            <h3>What's your favorite travel hack?</h3>
+            <br />
+          <Table bordered style={{backgroundColor: "white"}}>
       <thead>
         <tr>
           <th>#</th>
           <th>First Name</th>
           <th>Last Name</th>
-          <th>Travel Tip</th>
+          <th>Comments</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">1</th>
-          {/* <td>{this.state.firstName}</td>
-          <td>{this.state.lastName}</td>
-          <td>{this.state.comment}</td> */}
-          {this.displayContent()}
+          <td>{this.state.forum.firstName}</td>
+          <td>{this.state.forum.lastName}</td>
+          <td>{this.state.forum.comment}</td>
         </tr>
         {/* <tr>
           <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
+          <td>New York</td>
+          <td>USA</td>
+          <td>Empire State Building</td>
+          <td>The best city in the world... if you can get past the rats</td>
+          <td>5</td>
         </tr>
         <tr>
           <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
+          <td>Indianapolis</td>
+          <td>USA</td>
+          <td>Nothing</td>
+          <td>Nothing</td>
+          <td>1</td>
         </tr> */}
       </tbody>
     </Table>
-    <Button variant="contained" color="default" type="submit">Edit</Button>
+    <Button variant="contained" color="default" type="submit" >Edit</Button>
     <Button variant="contained" color="default" type="submit">Delete</Button>
         </div>
       )

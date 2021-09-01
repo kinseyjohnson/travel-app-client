@@ -1,7 +1,6 @@
 import React from 'react';
 import { Table } from 'reactstrap';
 import { Button } from '@material-ui/core';
-import ForumView from '../Forum/ForumView';
 
 interface DestinationViewProps {
   sessionToken: any
@@ -20,16 +19,12 @@ interface DestinationViewState {
 //   const destinationDate = []
 // }
 
-class DestinationView extends React.Component<any, DestinationViewState> {
+class DestinationView extends React.Component<any, any> {
   constructor(props: any) {
     super(props)
     
     this.state = {
-      city: "",
-      country: "",
-      attractions: "",
-      notes: "",
-      rating: 0,
+      destination: [],
       sessionToken: localStorage.getItem('sessionToken')
       
     };
@@ -47,12 +42,15 @@ class DestinationView extends React.Component<any, DestinationViewState> {
       }),
     })
       .then((res) => res.json())
-      .then( data => 
-        console.log(data))
-  }
+      .then( data => this.setState({
+        destination: data[0]
+      }))
+
+}
 
   displayContent = (data: any) => {
-    let destination = data
+    let destination = data.data
+    console.log(data)
     console.log(destination)
     // let result = destination.map(())
   }
@@ -78,11 +76,11 @@ class DestinationView extends React.Component<any, DestinationViewState> {
       <tbody>
         <tr>
           <th scope="row">1</th>
-          <td>{this.state.city}</td>
-          <td>{this.state.country}</td>
-          <td>{this.state.attractions}</td>
-          <td>{this.state.notes}</td>
-          <td>{this.state.rating}</td>
+          <td>{this.state.destination.city}</td>
+          <td>{this.state.destination.country}</td>
+          <td>{this.state.destination.attractions}</td>
+          <td>{this.state.destination.notes}</td>
+          <td>{this.state.destination.rating}</td>
         </tr>
         {/* <tr>
           <th scope="row">2</th>
@@ -104,7 +102,6 @@ class DestinationView extends React.Component<any, DestinationViewState> {
     </Table>
     <Button variant="contained" color="default" type="submit" >Edit</Button>
     <Button variant="contained" color="default" type="submit">Delete</Button>
-    <ForumView />
         </div>
       )
     }

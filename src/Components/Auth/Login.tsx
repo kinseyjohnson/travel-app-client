@@ -32,6 +32,7 @@ class Login extends React.Component<any, any> {
         .then((data) => {
             console.log(data)
             localStorage.setItem("sessionToken", data.sessionToken)
+            alert("Log in succssesful")
         })
     }
 
