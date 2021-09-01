@@ -5,11 +5,6 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import Register from './Register';
 
 
-interface LoginState {
-    email: string,
-    password: string
-}
-
 class Login extends React.Component<any, any> {
     constructor(props: any) {
         super(props)
@@ -59,7 +54,9 @@ class Login extends React.Component<any, any> {
                 </form>
             </div>
             <Switch>
-            <Route exact path="/register" component={Register} />
+                <Route exact path="/register">
+                    <Register />
+                </Route>
             </Switch>
             </Router>
         );

@@ -7,7 +7,7 @@ interface DestinationViewProps {
   sessionToken: any
 }
 
-interface DestinationViewState {
+interface Destinationtate {
   city: string,
   country: string,
   attractions: string,
@@ -20,31 +20,32 @@ interface DestinationViewState {
 //   const destinationDate = []
 // }
 
-class DestinationView extends React.Component<any, DestinationViewState> {
+class Destination extends React.Component<any, any> {
   constructor(props: any) {
     super(props)
     
     this.state = {
+      destination: [],
       city: "",
       country: "",
       attractions: "",
       notes: "",
       rating: 0,
-      sessionToken: localStorage.getItem('sessionToken')
+    //   sessionToken: localStorage.getItem('sessionToken')
       
-    };
+    }
   
     // this.mapper = this.mapper.bind(this)
   }
 
-  componentDidMount() {
-    console.log("Component Mounted")
+//   componentDidMount() {
+//     console.log("Component Mounted")
     // console.log(this.state.city)
     // console.log(this.state.country)
     // console.log(this.state.attractions)
     // console.log(this.state.notes)
     // console.log(this.state.rating)
-    fetch("http://localhost:3000/destination/all", {
+    fetchDestination = () => { fetch("http://localhost:3000/destination/all", {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -52,7 +53,7 @@ class DestinationView extends React.Component<any, DestinationViewState> {
       }),
     })
       .then((res) => res.json())
-      .then( destinationData => (
+      .then((data) => this.setState({destination: data}))
         // this.setState({
         //   city: data.city,
         //   country: data.country,
@@ -60,11 +61,11 @@ class DestinationView extends React.Component<any, DestinationViewState> {
         //   notes: data.notes,
         //   rating: data.rating
         // }) 
-        console.log(destinationData)
-      ))
-  
+        // console.log(destinationData)
   }
-   
+   componentDidMount(){
+       this.fetchDestination()
+   }
 
     render() {
       // const items = this.state.destination.map(())
@@ -86,7 +87,7 @@ class DestinationView extends React.Component<any, DestinationViewState> {
       <tbody>
         <tr>
           <th scope="row">1</th>
-          <td>{this.state.city}</td>
+          <td>{this.state.destination.city}</td>
           <td>{this.state.country}</td>
           <td>{this.state.attractions}</td>
           <td>{this.state.notes}</td>
@@ -116,6 +117,6 @@ class DestinationView extends React.Component<any, DestinationViewState> {
         </div>
       )
     }
-  }
+}
 
-export default DestinationView; 
+export default Destination; 

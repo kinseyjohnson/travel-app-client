@@ -3,6 +3,7 @@ import './forumcreate.css';
 import { Table } from 'reactstrap';
 import { Button } from '@material-ui/core';
 
+
 interface ForumViewProps {
   sessionToken: any
 }
@@ -59,7 +60,7 @@ class ForumView extends React.Component<any, ForumViewState> {
         <div>
           <h1>Travel Tips</h1>
           <br />
-          <Table bordered>
+          <Table bordered style={{backgroundColor: "white"}} >
       <thead>
         <tr>
           <th>#</th>
