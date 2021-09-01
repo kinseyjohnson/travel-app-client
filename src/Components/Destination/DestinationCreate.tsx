@@ -2,8 +2,12 @@ import React from 'react';
 import './destinationcreate.css';
 import { Button } from '@material-ui/core';
 
+// interface DestinationProps {
+//     sessionToken: (sessionToken: any) => void
+// }
+
 interface DestinationProps {
-    sessionToken: (sessionToken: any) => void
+    sessionToken: any
 }
 
 interface DestinationState {
@@ -19,12 +23,14 @@ class DestinationCreate extends React.Component<DestinationProps, DestinationSta
     constructor(props: any) {
         super(props);
 
+        // const sessionToken = localStorage.getItem("sessionToken")
+
         this.state = {
             city: "",
             country: "",
             attractions: "",
             notes: "",
-            rating: 1,
+            rating: 1, 
             sessionToken: localStorage.getItem("sessionToken")
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -46,7 +52,7 @@ class DestinationCreate extends React.Component<DestinationProps, DestinationSta
                 }),
                 headers: new Headers({
                     "Content-Type": "application/json",
-                    "Authorization": `SECRET ${this.props.sessionToken}`
+                    "Authorization": `SECRET ${this.state.sessionToken}`
                 }),
             })
                 .then((res) => res.json())
@@ -72,6 +78,8 @@ render() {
             <input type="text" name="rating" value={this.state.rating} onChange={(e) => this.setState({rating: e.target.valueAsNumber})} placeholder="Rating" />
             <br />
             <Button variant="contained" color="default" type="submit">Share</Button>
+            <br/ >
+            <Button className="button-2" variant="contained" color="default" type="submit" onClick={event =>  window.location.href='forum/all'}>View All Locations</Button>
             </form>
         </div>
   );
