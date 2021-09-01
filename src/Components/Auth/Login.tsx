@@ -46,7 +46,7 @@ class Login extends React.Component<any, any> {
                     <br />
                     <input type="password" value={this.state.password} onChange={(e) => this.setState({password: e.target.value})} placeholder="Password" />
                     <br />
-                    <Button variant="contained" color="default" type="submit" >Login</Button>
+                    <Button variant="contained" color="default" type="submit">Login</Button>
                     <br />
                    <p>Don't have an account?</p>
                    <Link to='/register'>Sign up</Link>

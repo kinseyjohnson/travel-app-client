@@ -5,10 +5,10 @@ import Landing from './Components/Landing/Landing';
 // import Register from './Components/Auth/Register';
 // import DestinationCreate from './Components/Destination/DestinationCreate'
 // import Forum from './Components/Forum/ForumCreate';
-import ForumView from './Components/Forum/ForumView'
-import DestinationView from './Components/Destination/DestinationView'
+// import ForumView from './Components/Forum/ForumView'
+// import DestinationView from './Components/Destination/DestinationView'
 // import DestinationDisplay from './Components/Destination/DestinationDisplay';
-
+// import DestinationTable from './Components/Destination/DestinationTable';
 
 // interface DestinationProps {
 //   sessionToken: (sessionToken: any) => void

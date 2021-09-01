@@ -39,11 +39,6 @@ class DestinationView extends React.Component<any, DestinationViewState> {
 
   componentDidMount() {
     console.log("Component Mounted")
-    // console.log(this.state.city)
-    // console.log(this.state.country)
-    // console.log(this.state.attractions)
-    // console.log(this.state.notes)
-    // console.log(this.state.rating)
     fetch("http://localhost:3000/destination/all", {
       method: "GET",
       headers: new Headers({
@@ -52,17 +47,14 @@ class DestinationView extends React.Component<any, DestinationViewState> {
       }),
     })
       .then((res) => res.json())
-      .then( destinationData => (
-        // this.setState({
-        //   city: data.city,
-        //   country: data.country,
-        //   attractions: data.attractions,
-        //   notes: data.notes,
-        //   rating: data.rating
-        // }) 
-        console.log(destinationData)
-      ))
-  
+      .then( data => 
+        console.log(data))
+  }
+
+  displayContent = (data: any) => {
+    let destination = data
+    console.log(destination)
+    // let result = destination.map(())
   }
    
 
@@ -110,7 +102,7 @@ class DestinationView extends React.Component<any, DestinationViewState> {
         </tr> */}
       </tbody>
     </Table>
-    <Button variant="contained" color="default" type="submit">Edit</Button>
+    <Button variant="contained" color="default" type="submit" >Edit</Button>
     <Button variant="contained" color="default" type="submit">Delete</Button>
     <ForumView />
         </div>

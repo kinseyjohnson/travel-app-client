@@ -35,11 +35,19 @@ class ForumView extends React.Component<any, ForumViewState> {
 
   componentDidMount() {
     console.log("Component Mounted")
+    // this.displayContent()
     // console.log(this.state.city)
     // console.log(this.state.country)
     // console.log(this.state.attractions)
     // console.log(this.state.notes)
     // console.log(this.state.rating)
+    
+  
+  }
+
+  displayContent(){
+    // console.log(data)
+
     fetch("http://localhost:3000/forum/all", {
       method: "GET",
       headers: new Headers({
@@ -48,12 +56,29 @@ class ForumView extends React.Component<any, ForumViewState> {
       }),
     })
       .then((res) => res.json())
-      .then( data => (
-        
+      .then( data => {
         console.log(data)
-      ))
-  
+         return data.map((destination: any) => {
+      
+        return(
+        <tr>
+          console.log(destination)  
+          <td>{destination.firstName}</td>
+          <td>{destination.lastName}</td>
+          <td>{destination.comment}</td>
+          </tr>
+        // let h4 = document.createElement("h4")
+        // h4.innerText = data
+        // document.body.appendChild(h4)
+        
+      )})})
+
+    // let destination = data
+
+    
+    //need map 
   }
+
 
     render() {
       return (
@@ -72,9 +97,10 @@ class ForumView extends React.Component<any, ForumViewState> {
       <tbody>
         <tr>
           <th scope="row">1</th>
-          <td>{this.state.firstName}</td>
+          {/* <td>{this.state.firstName}</td>
           <td>{this.state.lastName}</td>
-          <td>{this.state.comment}</td>
+          <td>{this.state.comment}</td> */}
+          {this.displayContent()}
         </tr>
         {/* <tr>
           <th scope="row">2</th>
