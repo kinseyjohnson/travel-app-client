@@ -62,7 +62,10 @@ class ForumView extends React.Component<any, any> {
         "Content-Type": "application/json",
         "Authorization": `SECRET ${this.state.sessionToken}`
       }),
-    }).then((res) => console.log("comment deleted"))
+    }).then((res) => console.log("comment deleted, refresh page"))
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
     render() {

@@ -65,6 +65,9 @@ class DestinationView extends React.Component<any, any> {
         "Authorization": `SECRET ${this.state.sessionToken}`
       }),
     }).then((res) => console.log("destination delete, refresh page"))
+    .catch((err) => {
+      console.log(err);
+    })
   }
 
   render() {
@@ -78,6 +81,7 @@ class DestinationView extends React.Component<any, any> {
         <th>Attractions</th>
         <th>Notes</th>
         <th>Rating</th>
+        <th>Edit or Delete</th>
       </tr>
     </thead>
     {this.state.destination.map((destination: any)=> (

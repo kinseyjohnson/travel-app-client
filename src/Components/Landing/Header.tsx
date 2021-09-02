@@ -8,6 +8,7 @@ import DestinationCreate from '../Destination/DestinationCreate';
 import ForumCreate from '../Forum/ForumCreate';
 import DestinationView from '../Destination/DestinationView';
 import ForumView from '../Forum/ForumView';
+import Landing from "./Landing";
 // import DestinationTable from '../Destination/DestinationTable';
 
 class Header extends React.Component {
@@ -17,6 +18,11 @@ class Header extends React.Component {
             <header>
                 <nav>
                 <ul>
+                    <Link to="/" onClick={((e) => localStorage.clear())}>
+                        <li>
+                            Logout
+                        </li>
+                    </Link>
                     <Link to="/register">
                         <li>Get Started</li>
                     </Link>
@@ -43,6 +49,9 @@ class Header extends React.Component {
                 </nav>
                 </header>
             <Switch>
+            <Route exact path="/register">
+                    <Landing />
+                </Route>
                 <Route exact path="/register">
                     <Register />
                 </Route>
