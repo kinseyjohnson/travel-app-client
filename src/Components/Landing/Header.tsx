@@ -49,9 +49,9 @@ class Header extends React.Component {
                 </nav>
                 </header>
             <Switch>
-            <Route exact path="/register">
+            {/* <Route exact path="/register">
                     <Landing />
-                </Route>
+                </Route> */}
                 <Route exact path="/register">
                     <Register />
                 </Route>

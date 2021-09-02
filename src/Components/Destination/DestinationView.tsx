@@ -49,12 +49,12 @@ class DestinationView extends React.Component<any, any> {
 }
 
 
-  displayContent = (data: any) => {
-    let destination = data.data
-    console.log(data)
-    console.log(destination)
-    // let result = destination.map(())
-  }
+  // displayContent = (data: any) => {
+  //   let destination = data.data
+  //   console.log(data)
+  //   console.log(destination)
+  //   // let result = destination.map(())
+  // }
    
 
   deleteDestination = (destination: any) => {
@@ -72,6 +72,10 @@ class DestinationView extends React.Component<any, any> {
 
   render() {
     return (
+      <>
+      <h2 style={{textAlign: "center", margin: "20px"}}>
+        Find Your Next Adventure
+      </h2>
     <Table bordered style={{backgroundColor: "white"}}>
     <thead>
       <tr>
@@ -99,8 +103,11 @@ class DestinationView extends React.Component<any, any> {
       </tbody>
     ))}
   </Table>
+  
+  </>
     )
   }
+  
 }
 
 export default DestinationView; 

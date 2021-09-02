@@ -15,7 +15,7 @@ interface DestinationState {
     country: string,
     attractions: string,
     notes: string,
-    rating: number,
+    rating: string,
     sessionToken: any,
 }
 
@@ -30,7 +30,7 @@ class DestinationCreate extends React.Component<DestinationProps, DestinationSta
             country: "",
             attractions: "",
             notes: "",
-            rating: 1, 
+            rating: "", 
             sessionToken: localStorage.getItem("sessionToken")
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -64,9 +64,9 @@ render() {
     return(
         <div className="creationTable">
              <form onSubmit={this.handleSubmit}>
-            <h1>
+            <h2>
                 Share Your Favorite Travel Destination
-            </h1>
+            </h2>
             <input type="text" name="city" value={this.state.city} onChange={(e) => this.setState({city: e.target.value})} placeholder="City" />
             <br />
             <input type="text" name="country" value={this.state.country} onChange={(e) => this.setState({country: e.target.value})} placeholder="Country" />
@@ -75,16 +75,15 @@ render() {
             <br />
             <input type="text" name="notes" value={this.state.notes} onChange={(e) => this.setState({notes: e.target.value})} placeholder="Notes" />
             <br />
-            <input type="text" name="rating" value={this.state.rating} onChange={(e) => this.setState({rating: e.target.valueAsNumber})} placeholder="Rating" />
+            <input type="text" name="rating" value={this.state.rating} onChange={(e) => this.setState({rating: e.target.value})} placeholder="Rating" />
             <br />
             <Button variant="contained" color="default" type="submit">Share</Button>
             <br/ >
-            <Button className="button-2" variant="contained" color="default" type="submit" onClick={event =>  window.location.href='destination/all'}>View All Locations</Button>
             </form>
         </div>
   );
 
-}
+} 
 };
 
 export default DestinationCreate;

@@ -16,11 +16,16 @@ li {
     float: right;
     color: #fff;
     font-size: 18px;
-    padding: 2px 40px;
+    padding: 2px 20px;
+
 }
 
 .logo {
     color: #fff;
     font-size: 30px;
     float: left;
+}
+
+li:hover {
+    color: #0a654c;
 }

@@ -71,6 +71,8 @@ class ForumView extends React.Component<any, any> {
     render() {
       // const items = this.state.forum.map(())
       return (
+        <>
+        <h2 style={{textAlign: "center", margin: "20px"}}>Try These Travel Hacks on Your Next Adventure</h2>
       <Table bordered style={{backgroundColor: "white"}}>
       <thead>
         <tr>
@@ -94,6 +96,7 @@ class ForumView extends React.Component<any, any> {
         </tbody>
       ))}
     </Table>
+    </>
       )
     }
   }

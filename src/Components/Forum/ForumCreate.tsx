@@ -68,7 +68,7 @@ class Forum extends React.Component<ForumProps, ForumState> {
             <br />
             <Button variant="contained" color="default" type="submit">Share</Button>
             < br />
-            <Button className="button-2" variant="contained" color="default" type="submit" onClick={event =>  window.location.href='forum/all'}>View All Tips</Button>
+            {/* <Button className="button-2" variant="contained" color="default" type="submit" onClick={event =>  window.location.href='forum/all'}>View All Tips</Button> */}
             </form>
         </div>
       )
