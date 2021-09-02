@@ -1,3 +1,5 @@
+An app intended for travel lovers. Users can find destinations and travel tips other users have recommended, as well as submit there own favorite places and tips.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
