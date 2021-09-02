@@ -43,10 +43,11 @@ class DestinationView extends React.Component<any, any> {
     })
       .then((res) => res.json())
       .then( data => this.setState({
-        destination: data[0]
+        destination: data
       }))
 
 }
+
 
   displayContent = (data: any) => {
     let destination = data.data
@@ -56,55 +57,36 @@ class DestinationView extends React.Component<any, any> {
   }
    
 
-    render() {
-      // const items = this.state.destination.map(())
-      return (
-        <div>
-            <h1>Travel Destinations</h1>
-            <br />
-          <Table bordered style={{backgroundColor: "white"}}>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>City</th>
-          <th>Country</th>
-          <th>Attractions</th>
-          <th>Notes</th>
-          <th>Rating</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>{this.state.destination.city}</td>
-          <td>{this.state.destination.country}</td>
-          <td>{this.state.destination.attractions}</td>
-          <td>{this.state.destination.notes}</td>
-          <td>{this.state.destination.rating}</td>
-        </tr>
-        {/* <tr>
-          <th scope="row">2</th>
-          <td>New York</td>
-          <td>USA</td>
-          <td>Empire State Building</td>
-          <td>The best city in the world... if you can get past the rats</td>
-          <td>5</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Indianapolis</td>
-          <td>USA</td>
-          <td>Nothing</td>
-          <td>Nothing</td>
-          <td>1</td>
-        </tr> */}
+  render() {
+    return (
+    <Table bordered style={{backgroundColor: "white"}}>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Attractions</th>
+        <th>Notes</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    {this.state.destination.map((destination: any)=> (
+      <tbody> 
+      <tr>
+        <th scope="row">{destination.id}</th>
+        <td>{destination.city}</td>
+        <td>{destination.country}</td>
+        <td>{destination.attractions}</td>
+        <td>{destination.notes}</td>
+        <td>{destination.rating}</td>
+        <td><Button variant="contained" color="default" type="submit" >Edit</Button> 
+        <Button variant="contained" color="default" type="submit">Delete</Button></td>
+      </tr>
       </tbody>
-    </Table>
-    <Button variant="contained" color="default" type="submit" >Edit</Button>
-    <Button variant="contained" color="default" type="submit">Delete</Button>
-        </div>
-      )
-    }
+    ))}
+  </Table>
+    )
   }
+}
 
 export default DestinationView; 

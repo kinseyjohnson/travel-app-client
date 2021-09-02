@@ -65,7 +65,7 @@ render() {
         <div className="creationTable">
              <form onSubmit={this.handleSubmit}>
             <h1>
-                Share a location!
+                Share Your Favorite Travel Destination
             </h1>
             <input type="text" name="city" value={this.state.city} onChange={(e) => this.setState({city: e.target.value})} placeholder="City" />
             <br />
@@ -79,7 +79,7 @@ render() {
             <br />
             <Button variant="contained" color="default" type="submit">Share</Button>
             <br/ >
-            <Button className="button-2" variant="contained" color="default" type="submit" onClick={event =>  window.location.href='forum/all'}>View All Locations</Button>
+            <Button className="button-2" variant="contained" color="default" type="submit" onClick={event =>  window.location.href='destination/all'}>View All Locations</Button>
             </form>
         </div>
   );
