@@ -55,15 +55,15 @@ class ForumView extends React.Component<any, any> {
     // let result = forum.map(())
   }
    
-  // deleteForum = (forum: any) => {
-  //   fetch(`http://localhost:3000/forum/delete/${id}}`, {
-  //     method: "DELETE",
-  //     headers: new Headers({
-  //       "Content-Type": "application/json",
-  //       "Authorization": `SECRET ${this.state.sessionToken}`
-  //     }),
-  //   }).then((res) => console.log("deleted"))
-  // }
+  deleteForum = (forum: any) => {
+    fetch(`http://localhost:3000/forum/delete/${forum}`, {
+      method: "DELETE",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        "Authorization": `SECRET ${this.state.sessionToken}`
+      }),
+    }).then((res) => console.log("comment deleted"))
+  }
 
     render() {
       // const items = this.state.forum.map(())
@@ -86,7 +86,7 @@ class ForumView extends React.Component<any, any> {
           <td>{forum.lastName}</td>
           <td>{forum.comment}</td>
           <td><Button variant="contained" color="default" type="submit" >Edit</Button> 
-          <Button variant="contained" color="default" type="submit">Delete</Button></td>
+          <Button variant="contained" color="default" type="submit" onClick={()=> this.deleteForum(forum.id)}>Delete</Button></td>
         </tr>
         </tbody>
       ))}

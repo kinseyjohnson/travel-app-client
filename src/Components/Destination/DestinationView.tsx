@@ -57,6 +57,16 @@ class DestinationView extends React.Component<any, any> {
   }
    
 
+  deleteDestination = (destination: any) => {
+    fetch(`http://localhost:3000/destination/delete/${destination}`, {
+      method: "DELETE",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        "Authorization": `SECRET ${this.state.sessionToken}`
+      }),
+    }).then((res) => console.log("destination delete, refresh page"))
+  }
+
   render() {
     return (
     <Table bordered style={{backgroundColor: "white"}}>
@@ -80,7 +90,7 @@ class DestinationView extends React.Component<any, any> {
         <td>{destination.notes}</td>
         <td>{destination.rating}</td>
         <td><Button variant="contained" color="default" type="submit" >Edit</Button> 
-        <Button variant="contained" color="default" type="submit">Delete</Button></td>
+        <Button variant="contained" color="default" type="submit" onClick={()=> this.deleteDestination(destination.id)}>Delete</Button></td>
       </tr>
       </tbody>
     ))}
